@@ -1,3 +1,13 @@
 micronaut:
   application:
     name: keymanagerRest
+
+grpc:
+  client:
+    plaintext: true
+    max-retry-attemps: 10
+  channels:
+    pix:
+      address: 'localhost:50051'
+      plaintext: true
+      max-retry-attemps: 5

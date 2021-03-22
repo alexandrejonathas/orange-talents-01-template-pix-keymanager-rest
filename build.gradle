@@ -2,10 +2,15 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version "1.4.10"
     id("org.jetbrains.kotlin.kapt") version "1.4.10"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.4.10"
+    id("org.jetbrains.kotlin.plugin.noarg") version "1.4.10"
     id("com.github.johnrengelman.shadow") version "6.1.0"
     id("io.micronaut.application") version "1.4.2"
     id("com.google.protobuf") version "0.8.13"
 }
+
+//allOpen {
+//    annotation(fqName="io.micronaut.http.annotation.Controller")
+//}
 
 version = "0.1"
 group = "br.com.zup"
@@ -15,6 +20,7 @@ repositories {
 }
 
 micronaut {
+    runtime("netty")
     testRuntime("junit5")
     processing {
         incremental(true)
