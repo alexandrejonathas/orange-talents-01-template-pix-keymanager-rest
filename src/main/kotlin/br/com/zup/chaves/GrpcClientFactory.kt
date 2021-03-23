@@ -1,6 +1,7 @@
 package br.com.zup.chaves
 
 import br.com.zup.CadastraChavePixGrpcServiceGrpc
+import br.com.zup.ConsultaChavePixGrpcServiceGrpc
 import br.com.zup.DeletaChavePixGrpcServiceGrpc
 import br.com.zup.ListaChavePixGrpcServiceGrpc
 import io.grpc.ManagedChannel
@@ -28,5 +29,11 @@ class GrpcClientFactory {
         @GrpcChannel("pix") channel: ManagedChannel
     ): DeletaChavePixGrpcServiceGrpc.DeletaChavePixGrpcServiceBlockingStub
         = DeletaChavePixGrpcServiceGrpc.newBlockingStub(channel)
+
+    @Singleton
+    fun consultaChavePixClientStub(
+        @GrpcChannel("pix") channel: ManagedChannel
+    ): ConsultaChavePixGrpcServiceGrpc.ConsultaChavePixGrpcServiceBlockingStub
+        = ConsultaChavePixGrpcServiceGrpc.newBlockingStub(channel)
 
 }

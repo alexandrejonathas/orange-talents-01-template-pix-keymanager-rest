@@ -18,7 +18,7 @@ class ListaChaveController(
 
     val logger = LoggerFactory.getLogger(this::class.java)
 
-    @Get("/api/chaves/{clienteId}")
+    @Get("/api/clientes/{clienteId}/chaves")
     fun lista(@PathVariable clienteId: String): List<ChaveResponse>{
 
         if(clienteId == null)
